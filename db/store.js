@@ -31,8 +31,8 @@ class Store {
         })
     }
 
-    createNote() {
-        const { title, text } = notes;
+    createNote(note) {
+        const { title, text } = note;
         if(!title || !text) {
             throw new Error("Please enter a valid note and title");
         }
