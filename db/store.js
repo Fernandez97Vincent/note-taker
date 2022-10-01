@@ -36,7 +36,7 @@ class Store {
         if(!title || !text) {
             throw new Error("Please enter a valid note and title");
         }
-
+        // creating notes
         const newNote = { title, text, id: uuidv1()};
         return this.getNotes().then((notes) => [...notes, newNote])
         .then((updateNotes) => this.write(updateNotes))

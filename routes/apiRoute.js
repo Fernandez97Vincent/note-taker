@@ -18,7 +18,7 @@ router.post('/notes', (req, res) => {
 
 // path to delete notes
 router.delete("/notes/:id", (req, res) => {
-    store.removeNote(req.params.id).then(() => res.json({ok: true}))
+    store.deleteNote(req.params.id).then(() => res.json({ok: true}))
     .catch((err) => res.status(500).json(err))
 })
 
