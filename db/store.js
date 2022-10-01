@@ -20,7 +20,7 @@ class Store {
             let parsedNotes;
 
             try {
-                parseNotes = [].concat(JSON.parse(notes));
+                parsedNotes = [].concat(JSON.parse(notes));
             }
             
             catch(err) {
@@ -34,7 +34,7 @@ class Store {
     createNote() {
         const { title, text } = notes;
         if(!title || !text) {
-            throw new Error("Pleas enter a valid note and title");
+            throw new Error("Please enter a valid note and title");
         }
 
         const newNote = { title, text, id: uuidv1()};
