@@ -14,7 +14,7 @@ class Store {
     write(note) {
         return writeFileAsync('db/db.json', JSON.stringify(note))
     }
-
+    // getter to get notes
     getNotes() {
         return this.read().then((notes) => {
             let parsedNotes;
@@ -42,4 +42,13 @@ class Store {
         .then((updateNotes) => this.write(updateNotes))
         .then(() => newNote)
     }
+
+    // creating a way to delete a note
+    deleteNote(id) {
+        return this.getNotes().then((notes) => notes.filter((note) => note.id !== id))
+        .then((filteredNotes) => this.write(filteredNotes));
+    }
 }
+
+module.exports = new Store()
+// now create a path in html routes
